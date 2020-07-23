@@ -26,7 +26,7 @@ function listenToStart(div) {
   })
 }
 
-function countDown() {
+function countDown(start) {
   let i = 2
 
   const countdown = setInterval(function(){
@@ -52,7 +52,7 @@ function startGame() {
 
 function appendScore() {
   const score = document.createElement("div")
-  score.classList = "score"
+  score.id = "score"
   score.innerHTML = 0
 
   game.appendChild(score)
@@ -60,7 +60,7 @@ function appendScore() {
 
 function appendLives() {
   const lives = document.createElement("div")
-  lives.classList = "lives"
+  lives.id = "lives"
   lives.innerHTML = 3
 
   game.appendChild(lives)
@@ -80,16 +80,16 @@ function addTarget() {
 
 function listenToTarget(target) {
   target.addEventListener("click", function() {
-    // incrementScore()
+    incrementScore()
     target.remove()
     addTarget()
   })
 }
 
-// function incrementScore() {
-//   const score = document.getElementById("score")
-//   score.innerHTML += 1
-// }
+function incrementScore() {
+  const score = document.getElementById("score")
+  score.innerHTML = parseInt(score.innerHTML) + 100
+}
 
 function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1) ) + min
