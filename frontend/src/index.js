@@ -88,9 +88,11 @@ function listenToTarget(target) {
 
 function incrementScore() {
   const score = document.getElementById("score")
-  score.innerHTML = parseInt(score.innerHTML) + 100
+  score.innerHTML = parseInt(score.innerHTML) + 50
 }
 
 function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1) ) + min
 }
+
+// makes score format 0000150
