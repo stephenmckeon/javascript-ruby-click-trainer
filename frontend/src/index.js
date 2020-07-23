@@ -45,7 +45,25 @@ function countDown() {
 }
 
 function startGame() {
+  appendScore()
+  appendLives()
   addTarget()
+}
+
+function appendScore() {
+  const score = document.createElement("div")
+  score.classList = "score"
+  score.innerHTML = 0
+
+  game.appendChild(score)
+}
+
+function appendLives() {
+  const lives = document.createElement("div")
+  lives.classList = "lives"
+  lives.innerHTML = 3
+
+  game.appendChild(lives)
 }
 
 function addTarget() {
@@ -53,14 +71,25 @@ function addTarget() {
   target.classList = "target"
 
   game.appendChild(target)
+
+  target.style.left = `${getRndInteger(0, 890)}px`
+  target.style.bottom = `${getRndInteger(0, 650)}px`
+
   listenToTarget(target)
 }
 
 function listenToTarget(target) {
   target.addEventListener("click", function() {
+    // incrementScore()
     target.remove()
+    addTarget()
   })
 }
+
+// function incrementScore() {
+//   const score = document.getElementById("score")
+//   score.innerHTML += 1
+// }
 
 function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1) ) + min
