@@ -2,6 +2,7 @@
 // fetch(`${BACKEND_URL}/score_boards`)
 //   .then(response => response.json())
 //   .then(parsedResponse => console.log(parsedResponse))
+
 document.addEventListener("DOMContentLoaded", function(e) {
   const game = document.getElementById("game")
 
@@ -90,6 +91,7 @@ function decrementLives() {
   let deleted
 
   if (heart) {
+    playMissSound()
     heart.remove()
     deleted = true
   } else {
@@ -145,6 +147,13 @@ function playTargetSound() {
 
 function playStartSound() {
   let sound = document.getElementById("start-sound")
+  sound.pause()
+  sound.currentTime = 0
+  sound.play()
+}
+
+function playMissSound() {
+  let sound = document.getElementById("miss-sound")
   sound.pause()
   sound.currentTime = 0
   sound.play()
