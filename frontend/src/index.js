@@ -47,6 +47,7 @@ function countDown(start) {
       start.innerHTML = i
       i--
     } else if (i === 0) {
+      playStartSound()
       start.innerHTML = "GO!"
       i --
     } else if (i === -1) {
@@ -107,12 +108,6 @@ function appendScore() {
 }
 
 function appendLives() {
-  // const lives = document.createElement("div")
-  // lives.id = "lives"
-  // lives.innerHTML = 3
-
-  // game.appendChild(lives)
-
   for (let i = 0; i < 3; i++) {
     const life = document.createElement("div")
 
@@ -135,9 +130,24 @@ function addTarget() {
 
 function listenToTarget(target) {
   target.addEventListener("click", function() {
+    playTargetSound()
     incrementScore()
     target.remove()
   })
+}
+
+function playTargetSound() {
+  let sound = document.getElementById("target-sound")
+  sound.pause()
+  sound.currentTime = 0
+  sound.play()
+}
+
+function playStartSound() {
+  let sound = document.getElementById("start-sound")
+  sound.pause()
+  sound.currentTime = 0
+  sound.play()
 }
 
 function incrementScore() {
