@@ -80,11 +80,18 @@ function appendScore() {
 }
 
 function appendLives() {
-  const lives = document.createElement("div")
-  lives.id = "lives"
-  lives.innerHTML = 3
+  // const lives = document.createElement("div")
+  // lives.id = "lives"
+  // lives.innerHTML = 3
 
-  game.appendChild(lives)
+  // game.appendChild(lives)
+
+  for (let i = 0; i < 3; i++) {
+    const life = document.createElement("div")
+
+    life.classList = "life"
+    document.getElementById("lives-container").appendChild(life)
+  }
 }
 
 function addTarget() {
@@ -133,8 +140,7 @@ function pad_with_zeroes(number, length) {
   return string
 }
 
-// lives should be 3 images or objects that decrease when lost
+// ***lives should be 3 images or objects that decrease when lost***
 // scoreboard option under start
 // if new highscore, add initials to submit to score board
-// each target has a time limit, maybe 2 seconds, before disappearing and losing a life
 // clicking without missing increases a multiplier (imagine guitar hero)
