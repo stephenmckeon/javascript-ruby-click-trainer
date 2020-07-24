@@ -44,22 +44,31 @@ function countDown(start) {
   }, 1000)
 }
 
+let gameInterval
+
 function startGame() {
   appendScore()
   appendLives()
-  setInterval(targetInterval, 3000)
+  gameInterval = setInterval(targetInterval, 1000)
 }
 
 function targetInterval() {
   const target = document.getElementById("target")
+  let gameStatus = true
 
   if (target) {
     let lives = document.getElementById("lives")
     lives.innerHTML = parseInt(lives.innerHTML) - 1
+
     target.remove()
+
+    if (parseInt(lives.innerHTML) === 0) {
+      gameStatus = false
+      gameOver()
+    }
   }
 
-  addTarget()
+  if (gameStatus) { addTarget() }
 }
 
 function appendScore() {
@@ -104,6 +113,11 @@ function incrementScore() {
   updatedScore = pad_with_zeroes(updatedScore, 7)
 
   score.innerHTML = updatedScore
+}
+
+function gameOver() {
+  alert("Game Over!")
+  clearInterval(gameInterval)
 }
 
 function getRndInteger(min, max) {
