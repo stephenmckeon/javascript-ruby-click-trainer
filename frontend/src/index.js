@@ -29,7 +29,7 @@ function handleStartClick() {
 function countDown(start) {
   let i = 2
 
-  const countdown = setInterval(function(){
+  const countdown = setInterval(function() {
     if (i >= 1) {
       start.innerHTML = i
       i--
@@ -47,7 +47,16 @@ function countDown(start) {
 function startGame() {
   appendScore()
   appendLives()
-  addTarget()
+  setInterval(function() {
+    const target = document.getElementById("target")
+    console.log(target)
+
+    if (target) {
+      target.remove()
+    }
+
+    addTarget()
+  }, 2000)
 }
 
 function appendScore() {
@@ -68,7 +77,7 @@ function appendLives() {
 
 function addTarget() {
   let target = document.createElement("div")
-  target.classList = "target"
+  target.id = "target"
 
   game.appendChild(target)
 
@@ -102,7 +111,7 @@ function getRndInteger(min, max) {
 function pad_with_zeroes(number, length) {
   let string = "" + number
   while (string.length < length) {
-      string = "0" + string
+    string = "0" + string
   }
 
   return string
