@@ -57,18 +57,32 @@ function targetInterval() {
   let gameStatus = true
 
   if (target) {
-    let lives = document.getElementById("lives")
-    lives.innerHTML = parseInt(lives.innerHTML) - 1
+    let deleted
+    deleted = decrementLives()
 
     target.remove()
 
-    if (parseInt(lives.innerHTML) === 0) {
+    if (!deleted) {
       gameStatus = false
       gameOver()
     }
   }
 
   if (gameStatus) { addTarget() }
+}
+
+function decrementLives() {
+  heart = document.querySelector(".heart")
+  let deleted
+
+  if (heart) {
+    heart.remove()
+    deleted = true
+  } else {
+    deleted = false
+  }
+
+  return deleted
 }
 
 function appendScore() {
