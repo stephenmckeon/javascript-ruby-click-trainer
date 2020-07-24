@@ -9,21 +9,21 @@ document.addEventListener("DOMContentLoaded", function(e) {
 })
 
 function appendStart() {
-  let div = document.createElement("div")
+  let start = document.createElement("div")
 
-  div.id = "start"
-  div.innerHTML = "START"
-  listenToStart(div)
+  start.id = "start"
+  start.innerHTML = "START"
 
-  game.appendChild(div)
+  game.appendChild(start)
+  start.addEventListener("click", handleStartClick)
 }
 
-function listenToStart(div) {
-  div.addEventListener("click", function() {
-    let start = document.getElementById("start")
-    start.innerHTML = 3
-    countDown(start)
-  })
+function handleStartClick() {
+  const start = document.getElementById("start")
+  start.removeEventListener("click", handleStartClick)
+
+  start.innerHTML = 3
+  countDown(start)
 }
 
 function countDown(start) {
@@ -108,7 +108,6 @@ function pad_with_zeroes(number, length) {
   return string
 }
 
-// makes score format 0000150;
 // lives should be 3 images or objects that decrease when lost
 // scoreboard option under start
 // if new highscore, add initials to submit to score board
