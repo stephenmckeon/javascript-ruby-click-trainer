@@ -47,16 +47,19 @@ function countDown(start) {
 function startGame() {
   appendScore()
   appendLives()
-  setInterval(function() {
-    const target = document.getElementById("target")
-    console.log(target)
+  setInterval(targetInterval, 3000)
+}
 
-    if (target) {
-      target.remove()
-    }
+function targetInterval() {
+  const target = document.getElementById("target")
 
-    addTarget()
-  }, 2000)
+  if (target) {
+    let lives = document.getElementById("lives")
+    lives.innerHTML = parseInt(lives.innerHTML) - 1
+    target.remove()
+  }
+
+  addTarget()
 }
 
 function appendScore() {
@@ -91,7 +94,6 @@ function listenToTarget(target) {
   target.addEventListener("click", function() {
     incrementScore()
     target.remove()
-    addTarget()
   })
 }
 
