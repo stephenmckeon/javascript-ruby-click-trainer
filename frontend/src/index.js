@@ -89,7 +89,7 @@ function appendLives() {
   for (let i = 0; i < 3; i++) {
     const life = document.createElement("div")
 
-    life.classList = "life"
+    life.classList = "heart"
     document.getElementById("lives-container").appendChild(life)
   }
 }
