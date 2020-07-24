@@ -1,4 +1,4 @@
-// const BACKEND_URL = 'http://localhost:3000';
+// const BACKEND_URL = "http://localhost:3000";
 // fetch(`${BACKEND_URL}/score_boards`)
 //   .then(response => response.json())
 //   .then(parsedResponse => console.log(parsedResponse))
@@ -53,7 +53,7 @@ function startGame() {
 function appendScore() {
   const score = document.createElement("div")
   score.id = "score"
-  score.innerHTML = 0
+  score.innerHTML = "0000000"
 
   game.appendChild(score)
 }
@@ -88,11 +88,29 @@ function listenToTarget(target) {
 
 function incrementScore() {
   const score = document.getElementById("score")
-  score.innerHTML = parseInt(score.innerHTML) + 50
+
+  let updatedScore = parseInt(score.innerHTML) + 50
+  updatedScore = pad_with_zeroes(updatedScore, 7)
+
+  score.innerHTML = updatedScore
 }
 
 function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1) ) + min
 }
 
-// makes score format 0000150
+function pad_with_zeroes(number, length) {
+  let string = "" + number
+  while (string.length < length) {
+      string = "0" + string
+  }
+
+  return string
+}
+
+// makes score format 0000150;
+// lives should be 3 images or objects that decrease when lost
+// scoreboard option under start
+// if new highscore, add initials to submit to score board
+// each target has a time limit, maybe 2 seconds, before disappearing and losing a life
+// clicking without missing increases a multiplier (imagine guitar hero)
