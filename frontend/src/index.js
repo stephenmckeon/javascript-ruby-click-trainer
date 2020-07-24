@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
   const game = document.getElementById("game")
 
   appendStart()
+  appendLeaderboard()
 })
 
 function appendStart() {
@@ -18,9 +19,21 @@ function appendStart() {
   start.addEventListener("click", handleStartClick)
 }
 
+function appendLeaderboard() {
+  let leaderboard = document.createElement("div")
+
+  leaderboard.id = "leaderboard"
+  leaderboard.innerHTML = "LEADERBOARD"
+
+  game.appendChild(leaderboard)
+}
+
 function handleStartClick() {
   const start = document.getElementById("start")
   start.removeEventListener("click", handleStartClick)
+
+  const leaderboard = document.getElementById("leaderboard")
+  leaderboard.remove()
 
   start.innerHTML = 3
   countDown(start)
@@ -154,7 +167,6 @@ function pad_with_zeroes(number, length) {
   return string
 }
 
-// ***lives should be 3 images or objects that decrease when lost***
 // scoreboard option under start
 // if new highscore, add initials to submit to score board
 // clicking without missing increases a multiplier (imagine guitar hero)

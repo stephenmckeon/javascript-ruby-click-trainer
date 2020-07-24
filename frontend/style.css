@@ -21,6 +21,19 @@
   color: rgb(197, 89, 0);
 }
 
+#leaderboard {
+  color: white;
+  font-size: 3em;
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#leaderboard:hover {
+  color: darkblue;
+}
+
 #score {
   color: white;
   font-size: 3em;
