@@ -222,18 +222,8 @@ class Start {
 
 /////////////////////////////////////////////////////////////////
 
-
-document.addEventListener("DOMContentLoaded", function(e) {
-  const game = document.getElementById("game")
-  const soundClass = new Sound(document.getElementById("sound-button"))
-
-  Start.appendStart(soundClass)
-  appendLeaderboard()
-  soundClass.listenToSoundButton()
-
-
-
-  function appendLeaderboard() {
+class LeaderBoard {
+  static appendLeaderboard() {
     let leaderboard = document.createElement("div")
 
     leaderboard.id = "leaderboard"
@@ -241,6 +231,17 @@ document.addEventListener("DOMContentLoaded", function(e) {
 
     game.appendChild(leaderboard)
   }
+}
+
+/////////////////////////////////////////////////////////////////
+
+
+document.addEventListener("DOMContentLoaded", function(e) {
+  const soundClass = new Sound(document.getElementById("sound-button"))
+
+  Start.appendStart(soundClass)
+  LeaderBoard.appendLeaderboard()
+  soundClass.listenToSoundButton()
 })
 
 // play again button
