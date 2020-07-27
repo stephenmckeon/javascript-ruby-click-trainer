@@ -20,9 +20,9 @@ function listenToSoundBtn () {
     gameSound ? gameSound = false : gameSound = true
 
     if (gameSound) {
-      soundBtn.src = "img/sound_on-removebg-preview.png"
+      soundBtn.src = "img/sound-on.png"
     } else {
-      soundBtn.src = "img/Sound off.webp"
+      soundBtn.src = "img/sound-off.png"
     }
   })
 }
