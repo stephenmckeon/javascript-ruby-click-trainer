@@ -50,6 +50,35 @@ class Sound {
 
 /////////////////////////////////////////////////////////////////
 
+class Score {
+  static appendScore() {
+    const score = document.createElement("div")
+    score.id = "score"
+    score.innerHTML = "0000000"
+
+    game.appendChild(score)
+  }
+
+  static incrementScoreBy(points) {
+    const score = document.getElementById("score")
+
+    let updatedScore = parseInt(score.innerHTML) + points
+    updatedScore = Score.pad_with_zeroes(updatedScore, 7)
+
+    score.innerHTML = updatedScore
+  }
+
+  static pad_with_zeroes(number, length) {
+    let string = "" + number
+    while (string.length < length) {
+      string = "0" + string
+    }
+    return string
+  }
+}
+
+/////////////////////////////////////////////////////////////////
+
 document.addEventListener("DOMContentLoaded", function(e) {
   const game = document.getElementById("game")
 
@@ -114,7 +143,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
   let gameInterval
 
   function startGame() {
-    appendScore()
+    Score.appendScore()
     appendLives()
     gameInterval = setInterval(targetInterval, 1000)
   }
@@ -153,14 +182,6 @@ document.addEventListener("DOMContentLoaded", function(e) {
     return deleted
   }
 
-  function appendScore() {
-    const score = document.createElement("div")
-    score.id = "score"
-    score.innerHTML = "0000000"
-
-    game.appendChild(score)
-  }
-
   function appendLives() {
     for (let i = 0; i < 3; i++) {
       const life = document.createElement("div")
@@ -186,18 +207,9 @@ document.addEventListener("DOMContentLoaded", function(e) {
     target.addEventListener("click", function() {
       soundClass.playTargetSound()
 
-      incrementScore()
+      Score.incrementScoreBy(50)
       target.remove()
     })
-  }
-
-  function incrementScore() {
-    const score = document.getElementById("score")
-
-    let updatedScore = parseInt(score.innerHTML) + 50
-    updatedScore = pad_with_zeroes(updatedScore, 7)
-
-    score.innerHTML = updatedScore
   }
 
   function gameOver() {
@@ -207,14 +219,6 @@ document.addEventListener("DOMContentLoaded", function(e) {
 
   function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min
-  }
-
-  function pad_with_zeroes(number, length) {
-    let string = "" + number
-    while (string.length < length) {
-      string = "0" + string
-    }
-    return string
   }
 })
 
