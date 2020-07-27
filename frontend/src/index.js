@@ -230,6 +230,49 @@ class LeaderBoard {
     leaderboard.innerHTML = "LEADERBOARD"
 
     game.appendChild(leaderboard)
+    LeaderBoard.listenToLeaderBoard(leaderboard)
+  }
+
+  static listenToLeaderBoard(leaderboard) {
+    leaderboard.addEventListener("click", this.fetchLeaderBoard)
+  }
+
+  static fetchLeaderBoard() {
+    fetch(`http://localhost:3000/score_boards`)
+    .then(response => response.json())
+    .then(leaderBoards => LeaderBoard.displayLeaderBoard(leaderBoards.data))
+  }
+
+  static displayLeaderBoard(leaderBoards) {
+    start.style.display = "none"
+    leaderboard.style.display = "none"
+
+    const sortedLeaderBoards = leaderBoards.sort(function(a, b) {
+      return a.id - b.id
+    })
+
+    for(const leaderBoard of sortedLeaderBoards) {
+
+      LeaderBoard.fetchHighScores(leaderBoard)
+
+      let card = document.createElement("div")
+      card.classList = "leaderboard-card"
+      card.innerHTML = `
+        <h1>${leaderBoard.attributes.difficulty}</h1>
+      `
+
+      document.getElementById("leaderboard-container").appendChild(card)
+    }
+  }
+
+  static fetchHighScores(leaderBoard) {
+    fetch(`http://localhost:3000/score_boards/${leaderBoard.id}/high_scores`)
+      .then(response => response.json())
+      .then(scores => LeaderBoard.displayHighScores(scores.data))
+  }
+
+  static displayHighScores(scores) {
+
   }
 }
 

@@ -67,6 +67,22 @@
   right: 10px;
 }
 
+#leaderboard-container {
+  height: 90%;
+  width: 90%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%)
+}
+
+.leaderboard-card {
+  height: 100%;
+  width: 33%;
+  position: relative;
+  display: inline-block
+}
+
 .life {
   height: 3em;
   width: 3em;
