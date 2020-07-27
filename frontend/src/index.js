@@ -195,39 +195,20 @@ class Game {
 
 /////////////////////////////////////////////////////////////////
 
-
-document.addEventListener("DOMContentLoaded", function(e) {
-  const game = document.getElementById("game")
-
-  appendStart()
-  appendLeaderboard()
-
-  const soundClass = new Sound(document.getElementById("sound-button"))
-
-  soundClass.listenToSoundButton()
-
-  function appendStart() {
+class Start {
+  static appendStart(soundClass) {
     let start = document.createElement("div")
 
     start.id = "start"
     start.innerHTML = "START"
 
     game.appendChild(start)
-    start.addEventListener("click", handleStartClick)
+    start.addEventListener("click", function() { Start.handleStartClick(soundClass) })
   }
 
-  function appendLeaderboard() {
-    let leaderboard = document.createElement("div")
-
-    leaderboard.id = "leaderboard"
-    leaderboard.innerHTML = "LEADERBOARD"
-
-    game.appendChild(leaderboard)
-  }
-
-  function handleStartClick() {
+  static handleStartClick(soundClass) {
     const start = document.getElementById("start")
-    start.removeEventListener("click", handleStartClick)
+    start.removeEventListener("click", Start.handleStartClick)
 
     const leaderboard = document.getElementById("leaderboard")
     leaderboard.style.display = "none"
@@ -236,6 +217,29 @@ document.addEventListener("DOMContentLoaded", function(e) {
 
     start.innerHTML = 3
     Game.countDown(start, soundClass)
+  }
+}
+
+/////////////////////////////////////////////////////////////////
+
+
+document.addEventListener("DOMContentLoaded", function(e) {
+  const game = document.getElementById("game")
+  const soundClass = new Sound(document.getElementById("sound-button"))
+
+  Start.appendStart(soundClass)
+  appendLeaderboard()
+  soundClass.listenToSoundButton()
+
+
+
+  function appendLeaderboard() {
+    let leaderboard = document.createElement("div")
+
+    leaderboard.id = "leaderboard"
+    leaderboard.innerHTML = "LEADERBOARD"
+
+    game.appendChild(leaderboard)
   }
 })
 
