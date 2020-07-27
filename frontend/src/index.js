@@ -11,13 +11,19 @@ document.addEventListener("DOMContentLoaded", function(e) {
   listenToSoundBtn()
 })
 
-let gameSound = true
+let gameSound = false
 
 function listenToSoundBtn () {
   const soundBtn = document.getElementById("sound-button")
 
   soundBtn.addEventListener("click", function() {
     gameSound ? gameSound = false : gameSound = true
+
+    if (gameSound) {
+      soundBtn.src = "img/sound_on-removebg-preview.png"
+    } else {
+      soundBtn.src = "img/Sound off.webp"
+    }
   })
 }
 
