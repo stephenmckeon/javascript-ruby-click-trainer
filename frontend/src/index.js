@@ -31,7 +31,6 @@ class Sound {
   }
 
   playSound(sound) {
-    console.log(this.gameSound)
     if (this.gameSound) {
       sound.pause()
       sound.currentTime = 0
@@ -79,13 +78,131 @@ class Score {
 
 /////////////////////////////////////////////////////////////////
 
+class Life {
+  static decrementLives(soundClass) {
+    const heart = document.querySelector(".heart")
+    let deleted
+
+    if (heart) {
+      soundClass.playMissSound()
+      heart.remove()
+      deleted = true
+    } else {
+      deleted = false
+    }
+
+    return deleted
+  }
+
+  static appendLives() {
+    for (let i = 0; i < 3; i++) {
+      const life = document.createElement("div")
+
+      life.classList = "heart"
+      document.getElementById("lives-container").appendChild(life)
+    }
+  }
+}
+
+/////////////////////////////////////////////////////////////////
+
+class Target {
+  static targetInterval(soundClass, gameClass) {
+    const target = document.getElementById("target")
+    let gameStatus = true
+
+    if (target) {
+      let deleted = Life.decrementLives(soundClass)
+
+      target.remove()
+
+      if (!deleted) {
+        gameStatus = false
+        gameClass.gameOver()
+      }
+    }
+
+    if (gameStatus) { Target.addTarget(soundClass) }
+  }
+
+  static addTarget(soundClass) {
+    let target = document.createElement("div")
+    target.id = "target"
+
+    game.appendChild(target)
+
+    target.style.left = `${Target.getRndInteger(0, 890)}px`
+    target.style.bottom = `${Target.getRndInteger(0, 650)}px`
+
+    Target.listenToTarget(target, soundClass)
+  }
+
+  static listenToTarget(target, soundClass) {
+    target.addEventListener("click", function() {
+      soundClass.playTargetSound()
+
+      Score.incrementScoreBy(50)
+      target.remove()
+    })
+  }
+
+  static getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) ) + min
+  }
+}
+
+/////////////////////////////////////////////////////////////////
+
+class Game {
+  constructor(gameInterval) {
+    this.gameInterval = gameInterval
+  }
+
+  startGame(soundClass, gameClass) {
+    Score.appendScore()
+    Life.appendLives()
+    this.gameInterval = setInterval(function() {
+      Target.targetInterval(soundClass, gameClass)
+    }, 1000)
+  }
+
+  gameOver() {
+    alert("Game Over!")
+    clearInterval(this.gameInterval)
+  }
+
+  static countDown(start, soundClass) {
+    let i = 2
+
+    const countdown = setInterval(function() {
+      if (i >= 1) {
+        start.innerHTML = i
+        i--
+      } else if (i === 0) {
+        soundClass.playStartSound()
+        start.innerHTML = "GO!"
+        i --
+      } else if (i === -1) {
+        clearInterval(countdown)
+        start.remove()
+
+        const gameClass = new Game
+        gameClass.startGame(soundClass, gameClass)
+      }
+    }, 1000)
+  }
+}
+
+/////////////////////////////////////////////////////////////////
+
+
 document.addEventListener("DOMContentLoaded", function(e) {
   const game = document.getElementById("game")
 
   appendStart()
   appendLeaderboard()
 
-  let soundClass = new Sound(document.getElementById("sound-button"))
+  const soundClass = new Sound(document.getElementById("sound-button"))
 
   soundClass.listenToSoundButton()
 
@@ -118,107 +235,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
     soundClass.hideSoundButton()
 
     start.innerHTML = 3
-    countDown(start)
-  }
-
-  function countDown(start) {
-    let i = 2
-
-    const countdown = setInterval(function() {
-      if (i >= 1) {
-        start.innerHTML = i
-        i--
-      } else if (i === 0) {
-        soundClass.playStartSound()
-        start.innerHTML = "GO!"
-        i --
-      } else if (i === -1) {
-        clearInterval(countdown)
-        start.remove()
-        startGame()
-      }
-    }, 1000)
-  }
-
-  let gameInterval
-
-  function startGame() {
-    Score.appendScore()
-    appendLives()
-    gameInterval = setInterval(targetInterval, 1000)
-  }
-
-  function targetInterval() {
-    const target = document.getElementById("target")
-    let gameStatus = true
-
-    if (target) {
-      let deleted
-      deleted = decrementLives()
-
-      target.remove()
-
-      if (!deleted) {
-        gameStatus = false
-        gameOver()
-      }
-    }
-
-    if (gameStatus) { addTarget() }
-  }
-
-  function decrementLives() {
-    heart = document.querySelector(".heart")
-    let deleted
-
-    if (heart) {
-      soundClass.playMissSound()
-      heart.remove()
-      deleted = true
-    } else {
-      deleted = false
-    }
-
-    return deleted
-  }
-
-  function appendLives() {
-    for (let i = 0; i < 3; i++) {
-      const life = document.createElement("div")
-
-      life.classList = "heart"
-      document.getElementById("lives-container").appendChild(life)
-    }
-  }
-
-  function addTarget() {
-    let target = document.createElement("div")
-    target.id = "target"
-
-    game.appendChild(target)
-
-    target.style.left = `${getRndInteger(0, 890)}px`
-    target.style.bottom = `${getRndInteger(0, 650)}px`
-
-    listenToTarget(target)
-  }
-
-  function listenToTarget(target) {
-    target.addEventListener("click", function() {
-      soundClass.playTargetSound()
-
-      Score.incrementScoreBy(50)
-      target.remove()
-    })
-  }
-
-  function gameOver() {
-    alert("Game Over!")
-    clearInterval(gameInterval)
-  }
-
-  function getRndInteger(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) ) + min
+    Game.countDown(start, soundClass)
   }
 })
 
