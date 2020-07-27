@@ -58,6 +58,16 @@
   right: 5px
 }
 
+#sound-button {
+  height: 3em;
+  width: 3em;
+  background-color: grey;
+  display: inline-block;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
 .life {
   height: 3em;
   width: 3em;

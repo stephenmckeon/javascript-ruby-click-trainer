@@ -8,7 +8,18 @@ document.addEventListener("DOMContentLoaded", function(e) {
 
   appendStart()
   appendLeaderboard()
+  listenToSoundBtn()
 })
+
+let gameSound = true
+
+function listenToSoundBtn () {
+  const soundBtn = document.getElementById("sound-button")
+
+  soundBtn.addEventListener("click", function() {
+    gameSound ? gameSound = false : gameSound = true
+  })
+}
 
 function appendStart() {
   let start = document.createElement("div")
@@ -34,7 +45,10 @@ function handleStartClick() {
   start.removeEventListener("click", handleStartClick)
 
   const leaderboard = document.getElementById("leaderboard")
-  leaderboard.remove()
+  leaderboard.style.display = "none"
+
+  const soundBtn = document.getElementById("sound-button")
+  soundBtn.style.display = "none"
 
   start.innerHTML = 3
   countDown(start)
@@ -140,23 +154,27 @@ function listenToTarget(target) {
 
 function playTargetSound() {
   let sound = document.getElementById("target-sound")
-  sound.pause()
-  sound.currentTime = 0
-  sound.play()
+  playSound(sound)
 }
 
 function playStartSound() {
   let sound = document.getElementById("start-sound")
-  sound.pause()
-  sound.currentTime = 0
-  sound.play()
+  playSound(sound)
 }
 
 function playMissSound() {
   let sound = document.getElementById("miss-sound")
-  sound.pause()
-  sound.currentTime = 0
-  sound.play()
+  playSound(sound)
+}
+
+function playSound(sound) {
+  if (gameSound) {
+    console.log(sound)
+
+    sound.pause()
+    sound.currentTime = 0
+    sound.play()
+  }
 }
 
 function incrementScore() {
@@ -186,6 +204,9 @@ function pad_with_zeroes(number, length) {
   return string
 }
 
-// scoreboard option under start
+// play again button
+// display leaderboard
 // if new highscore, add initials to submit to score board
 // clicking without missing increases a multiplier (imagine guitar hero)
+// enable and disable sound icon on the start menu bottom right, greyed out
+// animate targets after click
