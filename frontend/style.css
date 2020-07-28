@@ -54,6 +54,19 @@ td {
   color: darkblue;
 }
 
+#back-button {
+  color: white;
+  font-size: 3em;
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%)
+}
+
+#back-button:hover {
+  color: darkblue;
+}
+
 #score {
   color: white;
   font-size: 3em;

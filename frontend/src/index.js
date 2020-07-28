@@ -234,7 +234,17 @@ class LeaderBoard {
   }
 
   static listenToLeaderBoard(leaderboard) {
-    leaderboard.addEventListener("click", this.fetchLeaderBoard)
+    leaderboard.addEventListener("click", function() {
+      LeaderBoard.fetchLeaderBoard()
+      LeaderBoard.appendBackButton()
+    })
+  }
+
+  static appendBackButton() {
+    const back = document.createElement("div")
+    back.id = "back-button"
+    back.innerHTML = "Back"
+    game.appendChild(back)
   }
 
   static fetchLeaderBoard() {
@@ -268,8 +278,8 @@ class LeaderBoard {
     let highScores
 
     fetch(`http://localhost:3000/score_boards/${leaderBoard.id}/high_scores`)
-      .then(response => response.json())
-      .then(scores => LeaderBoard.displayHighScores(leaderBoard, scores.data))
+    .then(response => response.json())
+    .then(scores => LeaderBoard.displayHighScores(leaderBoard, scores.data))
   }
 
   static displayHighScores(leaderBoard, scores) {

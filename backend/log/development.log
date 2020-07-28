@@ -4513,3 +4513,65 @@ Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.8ms | Allocations: 3123)
 Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.6ms | Allocations: 3066)
 
 
+Started GET "/score_boards" for ::1 at 2020-07-28 10:14:06 -0400
+Processing by ScoreBoardsController#index as */*
+  [1m[36mScoreBoard Load (0.3ms)[0m  [1m[34mSELECT "score_boards".* FROM "score_boards"[0m
+  ↳ app/controllers/score_boards_controller.rb:4:in `index'
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.3ms | Allocations: 1178)
+
+
+Started GET "/score_boards/1/high_scores" for ::1 at 2020-07-28 10:14:06 -0400
+Started GET "/score_boards/2/high_scores" for ::1 at 2020-07-28 10:14:06 -0400
+Started GET "/score_boards/3/high_scores" for ::1 at 2020-07-28 10:14:06 -0400
+Processing by HighScoresController#index as */*
+Processing by HighScoresController#index as */*
+  Parameters: {"score_board_id"=>"1"}
+  Parameters: {"score_board_id"=>"2"}
+Processing by HighScoresController#index as */*
+  [1m[36mHighScore Load (0.5ms)[0m  [1m[34mSELECT "high_scores".* FROM "high_scores" WHERE (score_board_id = '1')[0m
+  Parameters: {"score_board_id"=>"3"}
+  [1m[36mHighScore Load (0.8ms)[0m  [1m[34mSELECT "high_scores".* FROM "high_scores" WHERE (score_board_id = '2')[0m
+  ↳ app/controllers/high_scores_controller.rb:4:in `index'
+  [1m[36mHighScore Load (0.8ms)[0m  [1m[34mSELECT "high_scores".* FROM "high_scores" WHERE (score_board_id = '3')[0m
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.5ms | Allocations: 2328)
+
+
+  ↳ app/controllers/high_scores_controller.rb:4:in `index'
+  ↳ app/controllers/high_scores_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.8ms | Allocations: 2382)
+
+
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.8ms | Allocations: 3568)
+
+
+Started GET "/score_boards" for ::1 at 2020-07-28 10:14:16 -0400
+Processing by ScoreBoardsController#index as */*
+  [1m[36mScoreBoard Load (0.4ms)[0m  [1m[34mSELECT "score_boards".* FROM "score_boards"[0m
+  ↳ app/controllers/score_boards_controller.rb:4:in `index'
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.4ms | Allocations: 1178)
+
+
+Started GET "/score_boards/1/high_scores" for ::1 at 2020-07-28 10:14:16 -0400
+Started GET "/score_boards/2/high_scores" for ::1 at 2020-07-28 10:14:16 -0400
+Started GET "/score_boards/3/high_scores" for ::1 at 2020-07-28 10:14:16 -0400
+Processing by HighScoresController#index as */*
+Processing by HighScoresController#index as */*
+Processing by HighScoresController#index as */*
+  Parameters: {"score_board_id"=>"3"}
+  Parameters: {"score_board_id"=>"2"}
+  Parameters: {"score_board_id"=>"1"}
+  [1m[36mHighScore Load (0.6ms)[0m  [1m[34mSELECT "high_scores".* FROM "high_scores" WHERE (score_board_id = '3')[0m
+  [1m[36mHighScore Load (0.7ms)[0m  [1m[34mSELECT "high_scores".* FROM "high_scores" WHERE (score_board_id = '2')[0m
+  [1m[36mHighScore Load (1.0ms)[0m  [1m[34mSELECT "high_scores".* FROM "high_scores" WHERE (score_board_id = '1')[0m
+  ↳ app/controllers/high_scores_controller.rb:4:in `index'
+  ↳ app/controllers/high_scores_controller.rb:4:in `index'
+  ↳ app/controllers/high_scores_controller.rb:4:in `index'
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.6ms | Allocations: 2839)
+
+
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.7ms | Allocations: 2936)
+
+
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 1.0ms | Allocations: 3149)
+
+
