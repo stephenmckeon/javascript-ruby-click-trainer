@@ -74,6 +74,26 @@ class Score {
     }
     return string
   }
+
+  static createHighScore(score) {
+    const difficulty = "easy" // default until difficulties are added in
+    const leaderBoardId = 1 // default until difficulties are added in
+    const initials = prompt("New high score, please enter your initials!", "AAA")
+
+    fetch(`http://localhost:3000/score_boards/${leaderBoardId}/high_scores`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({
+        difficulty: difficulty,
+        initials: initials,
+        score: score,
+        score_board_id: leaderBoardId
+      })
+    })
+  }
 }
 
 /////////////////////////////////////////////////////////////////
@@ -119,6 +139,9 @@ class Target {
       if (!deleted) {
         gameStatus = false
         gameClass.gameOver()
+        // before playAgain,submit score to leader boards
+        const score = parseInt(document.getElementById("score").innerHTML)
+        Score.createHighScore(score)
         gameClass.playAgain()
       }
     }
@@ -383,3 +406,6 @@ document.addEventListener("DOMContentLoaded", function(e) {
 // clicking without missing increases a multiplier (imagine guitar hero)
 // enable and disable sound icon on the start menu bottom right, greyed out
 // animate targets after click
+// arcade style fonts
+// rubocop
+// seperate JS files
