@@ -38,12 +38,12 @@ class Sound {
     }
   }
 
-  hideSoundButton() {
-    this.element.style.display = "none"
+  static hideSoundButton() {
+    document.getElementById("sound-button").style.display = "none"
   }
 
-  showSoundButton() {
-    this.element.style.display = ""
+  static showSoundButton() {
+    document.getElementById("sound-button").style.display = ""
   }
 }
 
@@ -119,6 +119,7 @@ class Target {
       if (!deleted) {
         gameStatus = false
         gameClass.gameOver()
+        gameClass.playAgain()
       }
     }
 
@@ -166,11 +167,6 @@ class Game {
     }, 1000)
   }
 
-  gameOver() {
-    alert("Game Over!")
-    clearInterval(this.gameInterval)
-  }
-
   static countDown(start, soundClass) {
     let i = 2
 
@@ -184,12 +180,32 @@ class Game {
         i --
       } else if (i === -1) {
         clearInterval(countdown)
-        start.remove()
+        start.style.display = "none"
 
         const gameClass = new Game
         gameClass.startGame(soundClass, gameClass)
       }
     }, 1000)
+  }
+
+  gameOver() {
+    alert("Game Over!")
+    clearInterval(this.gameInterval)
+  }
+
+  playAgain() {
+    const start = document.getElementById("start")
+    start.innerHTML = "PLAY AGAIN"
+    start.style.fontSize = "5em"
+    start.style.display = ""
+
+    const score = document.getElementById("score")
+    score.remove()
+
+    const leaderBoard = document.getElementById("leaderboard")
+    leaderBoard.style.display = ""
+
+    Sound.showSoundButton()
   }
 }
 
@@ -213,8 +229,9 @@ class Start {
     const leaderboard = document.getElementById("leaderboard")
     leaderboard.style.display = "none"
 
-    soundClass.hideSoundButton()
+    Sound.hideSoundButton()
 
+    start.style.fontSize = "10em"
     start.innerHTML = 3
     Game.countDown(start, soundClass)
   }
@@ -361,14 +378,8 @@ document.addEventListener("DOMContentLoaded", function(e) {
   soundClass.listenToSoundButton()
 })
 
-// play again button
-// display leaderboard
+
 // if new highscore, add initials to submit to score board
 // clicking without missing increases a multiplier (imagine guitar hero)
 // enable and disable sound icon on the start menu bottom right, greyed out
 // animate targets after click
-
-// const BACKEND_URL = "http://localhost:3000";
-// fetch(`${BACKEND_URL}/score_boards`)
-//   .then(response => response.json())
-//   .then(parsedResponse => console.log(parsedResponse))
