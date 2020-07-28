@@ -78,7 +78,7 @@ class Score {
   static createHighScore(score) {
     const difficulty = "easy" // default until difficulties are added in
     const leaderBoardId = 1 // default until difficulties are added in
-    const initials = prompt("New high score, please enter your initials!", "AAA")
+    const initials = Score.getValidInitials()
 
     fetch(`http://localhost:3000/score_boards/${leaderBoardId}/high_scores`, {
       method: "POST",
@@ -93,6 +93,16 @@ class Score {
         score_board_id: leaderBoardId
       })
     })
+  }
+
+  static getValidInitials() {
+    let initials = prompt("Enter your initials to save your score:", "AAA")
+
+    while (initials.length < 1 || initials.length > 3) {
+      initials = prompt("Enter your initials to save your score:", "AAA")
+    }
+
+    return initials
   }
 }
 
@@ -376,7 +386,7 @@ class LeaderBoard {
       row.appendChild(rank)
 
       const initials = document.createElement("TD")
-      initials.innerHTML = `${scores[i].attributes.initials} `
+      initials.innerHTML = `${scores[i].attributes.initials.toUpperCase()} `
       row.appendChild(initials)
 
       const score = document.createElement("TD")
