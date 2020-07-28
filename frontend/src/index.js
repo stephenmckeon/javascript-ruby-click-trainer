@@ -235,7 +235,16 @@ class LeaderBoard {
 
   static listenToLeaderBoard(leaderboard) {
     leaderboard.addEventListener("click", function() {
-      LeaderBoard.fetchLeaderBoard()
+      const leaderBoard = document.getElementById("leaderboard-container")
+
+      if (leaderBoard.style.display === "none") {
+        leaderBoard.style.display = ""
+        start.style.display = "none"
+        leaderboard.style.display = "none"
+      } else {
+        LeaderBoard.fetchLeaderBoard()
+      }
+
       LeaderBoard.appendBackButton()
     })
   }
