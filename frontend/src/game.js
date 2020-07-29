@@ -37,8 +37,11 @@ export class Game {
     Score.appendScore()
     Life.appendLives()
     Multiplier.displayMultiplier()
+
+    const multiplierClass = new Multiplier
+
     this.gameInterval = setInterval(function() {
-      Target.targetInterval(soundClass, gameClass, difficultyClass)
+      Target.targetInterval(soundClass, gameClass, difficultyClass, multiplierClass)
     }, difficultyClass.interval)
   }
 

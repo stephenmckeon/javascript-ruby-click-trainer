@@ -6,6 +6,7 @@ export class Multiplier {
 
   successfulClick() {
     this.consecutiveClicks++
+    console.log(this.consecutiveClicks)
   }
 
   missedClick() {
@@ -26,11 +27,23 @@ export class Multiplier {
     }
   }
 
+  updateMultiplierElement() {
+    if (this.multiplier === 1) {
+      multiplier.innerHTML = "x1"
+    } else if (this.multiplier === 2) {
+      multiplier.innerHTML = "x2"
+    } else if (this.multiplier === 3) {
+      multiplier.innerHTML = "x3"
+    } else if (this.multiplier === 4) {
+      multiplier.innerHTML = "x4"
+    }
+  }
+
   static displayMultiplier() {
     multiplier.style.display = "inline-block"
   }
 
   static hideMultiplier() {
-    multiplier.style.display = "inline-"
+    multiplier.style.display = ""
   }
 }

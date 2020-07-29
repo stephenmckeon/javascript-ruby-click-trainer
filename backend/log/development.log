@@ -8975,3 +8975,104 @@ Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 1.3ms | Allocations: 2025)
 Completed 200 OK in 12ms (Views: 6.7ms | ActiveRecord: 4.6ms | Allocations: 3885)
 
 
+Started POST "/score_boards/1/high_scores" for ::1 at 2020-07-29 14:24:50 -0400
+Processing by HighScoresController#create as JSON
+  Parameters: {"difficulty"=>"easy", "initials"=>"AAA", "score"=>0, "score_board_id"=>"1", "high_score"=>{"initials"=>"AAA", "score"=>0, "difficulty"=>"easy", "score_board_id"=>"1"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/high_scores_controller.rb:8:in `create'
+  [1m[36mScoreBoard Load (0.5ms)[0m  [1m[34mSELECT "score_boards".* FROM "score_boards" WHERE "score_boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/high_scores_controller.rb:8:in `create'
+  [1m[36mHighScore Create (0.9ms)[0m  [1m[32mINSERT INTO "high_scores" ("initials", "score", "difficulty", "score_board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["initials", "AAA"], ["score", 0], ["difficulty", "easy"], ["score_board_id", 1], ["created_at", "2020-07-29 18:24:50.338433"], ["updated_at", "2020-07-29 18:24:50.338433"]]
+  ↳ app/controllers/high_scores_controller.rb:8:in `create'
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/high_scores_controller.rb:8:in `create'
+Completed 204 No Content in 22ms (ActiveRecord: 2.4ms | Allocations: 3789)
+
+
+Started POST "/score_boards/1/high_scores" for ::1 at 2020-07-29 14:25:56 -0400
+Processing by HighScoresController#create as JSON
+  Parameters: {"difficulty"=>"easy", "initials"=>"AAA", "score"=>0, "score_board_id"=>"1", "high_score"=>{"initials"=>"AAA", "score"=>0, "difficulty"=>"easy", "score_board_id"=>"1"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/high_scores_controller.rb:8:in `create'
+  [1m[36mScoreBoard Load (0.4ms)[0m  [1m[34mSELECT "score_boards".* FROM "score_boards" WHERE "score_boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/high_scores_controller.rb:8:in `create'
+  [1m[36mHighScore Create (0.4ms)[0m  [1m[32mINSERT INTO "high_scores" ("initials", "score", "difficulty", "score_board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["initials", "AAA"], ["score", 0], ["difficulty", "easy"], ["score_board_id", 1], ["created_at", "2020-07-29 18:25:56.441367"], ["updated_at", "2020-07-29 18:25:56.441367"]]
+  ↳ app/controllers/high_scores_controller.rb:8:in `create'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/high_scores_controller.rb:8:in `create'
+Completed 204 No Content in 8ms (ActiveRecord: 1.6ms | Allocations: 3686)
+
+
+Started POST "/score_boards/1/high_scores" for ::1 at 2020-07-29 14:26:34 -0400
+Processing by HighScoresController#create as JSON
+  Parameters: {"difficulty"=>"easy", "initials"=>"AAA", "score"=>0, "score_board_id"=>"1", "high_score"=>{"initials"=>"AAA", "score"=>0, "difficulty"=>"easy", "score_board_id"=>"1"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/high_scores_controller.rb:8:in `create'
+  [1m[36mScoreBoard Load (0.4ms)[0m  [1m[34mSELECT "score_boards".* FROM "score_boards" WHERE "score_boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/high_scores_controller.rb:8:in `create'
+  [1m[36mHighScore Create (0.3ms)[0m  [1m[32mINSERT INTO "high_scores" ("initials", "score", "difficulty", "score_board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["initials", "AAA"], ["score", 0], ["difficulty", "easy"], ["score_board_id", 1], ["created_at", "2020-07-29 18:26:34.468718"], ["updated_at", "2020-07-29 18:26:34.468718"]]
+  ↳ app/controllers/high_scores_controller.rb:8:in `create'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/high_scores_controller.rb:8:in `create'
+Completed 204 No Content in 6ms (ActiveRecord: 1.3ms | Allocations: 3685)
+
+
+Started POST "/score_boards/3/high_scores" for ::1 at 2020-07-29 14:27:07 -0400
+Processing by HighScoresController#create as JSON
+  Parameters: {"difficulty"=>"hard", "initials"=>"AAA", "score"=>0, "score_board_id"=>"3", "high_score"=>{"initials"=>"AAA", "score"=>0, "difficulty"=>"hard", "score_board_id"=>"3"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/high_scores_controller.rb:8:in `create'
+  [1m[36mScoreBoard Load (0.5ms)[0m  [1m[34mSELECT "score_boards".* FROM "score_boards" WHERE "score_boards"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/high_scores_controller.rb:8:in `create'
+  [1m[36mHighScore Create (0.5ms)[0m  [1m[32mINSERT INTO "high_scores" ("initials", "score", "difficulty", "score_board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["initials", "AAA"], ["score", 0], ["difficulty", "hard"], ["score_board_id", 3], ["created_at", "2020-07-29 18:27:07.347498"], ["updated_at", "2020-07-29 18:27:07.347498"]]
+  ↳ app/controllers/high_scores_controller.rb:8:in `create'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/high_scores_controller.rb:8:in `create'
+Completed 204 No Content in 9ms (ActiveRecord: 1.8ms | Allocations: 3685)
+
+
+Started POST "/score_boards/2/high_scores" for ::1 at 2020-07-29 14:51:59 -0400
+Processing by HighScoresController#create as JSON
+  Parameters: {"difficulty"=>"medium", "initials"=>"SJM", "score"=>19500, "score_board_id"=>"2", "high_score"=>{"initials"=>"SJM", "score"=>19500, "difficulty"=>"medium", "score_board_id"=>"2"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/high_scores_controller.rb:8:in `create'
+  [1m[36mScoreBoard Load (0.5ms)[0m  [1m[34mSELECT "score_boards".* FROM "score_boards" WHERE "score_boards"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/high_scores_controller.rb:8:in `create'
+  [1m[36mHighScore Create (0.8ms)[0m  [1m[32mINSERT INTO "high_scores" ("initials", "score", "difficulty", "score_board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["initials", "SJM"], ["score", 19500], ["difficulty", "medium"], ["score_board_id", 2], ["created_at", "2020-07-29 18:51:59.103967"], ["updated_at", "2020-07-29 18:51:59.103967"]]
+  ↳ app/controllers/high_scores_controller.rb:8:in `create'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/high_scores_controller.rb:8:in `create'
+Completed 204 No Content in 8ms (ActiveRecord: 2.0ms | Allocations: 3788)
+
+
+Started GET "/score_boards" for ::1 at 2020-07-29 14:52:00 -0400
+Processing by ScoreBoardsController#index as */*
+  [1m[36mScoreBoard Load (0.3ms)[0m  [1m[34mSELECT "score_boards".* FROM "score_boards"[0m
+  ↳ app/controllers/score_boards_controller.rb:4:in `index'
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.3ms | Allocations: 1179)
+
+
+Started GET "/score_boards/1/high_scores" for ::1 at 2020-07-29 14:52:00 -0400
+Started GET "/score_boards/2/high_scores" for ::1 at 2020-07-29 14:52:00 -0400
+Started GET "/score_boards/3/high_scores" for ::1 at 2020-07-29 14:52:00 -0400
+Processing by HighScoresController#index as */*
+  Parameters: {"score_board_id"=>"1"}
+  [1m[36mHighScore Load (1.1ms)[0m  [1m[34mSELECT "high_scores".* FROM "high_scores" WHERE (score_board_id = '1') ORDER BY "high_scores"."score" DESC LIMIT $1[0m  [["LIMIT", 10]]
+  ↳ app/controllers/high_scores_controller.rb:4:in `index'
+Completed 200 OK in 5ms (Views: 3.3ms | ActiveRecord: 1.1ms | Allocations: 2401)
+
+
+Processing by HighScoresController#index as */*
+Processing by HighScoresController#index as */*
+  Parameters: {"score_board_id"=>"3"}
+  Parameters: {"score_board_id"=>"2"}
+  [1m[36mHighScore Load (1.2ms)[0m  [1m[34mSELECT "high_scores".* FROM "high_scores" WHERE (score_board_id = '3') ORDER BY "high_scores"."score" DESC LIMIT $1[0m  [["LIMIT", 10]]
+  ↳ app/controllers/high_scores_controller.rb:4:in `index'
+  [1m[36mHighScore Load (1.4ms)[0m  [1m[34mSELECT "high_scores".* FROM "high_scores" WHERE (score_board_id = '2') ORDER BY "high_scores"."score" DESC LIMIT $1[0m  [["LIMIT", 10]]
+Completed 200 OK in 4ms (Views: 2.4ms | ActiveRecord: 1.2ms | Allocations: 2456)
+
+
+  ↳ app/controllers/high_scores_controller.rb:4:in `index'
+Completed 200 OK in 5ms (Views: 3.5ms | ActiveRecord: 1.4ms | Allocations: 4097)
+
+

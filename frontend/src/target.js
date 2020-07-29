@@ -1,12 +1,18 @@
 import {Life} from "./life.js"
 import {Score} from "./score.js"
+import { Multiplier } from "./multiplier.js"
 
 export class Target {
-  static targetInterval(soundClass, gameClass, difficultyClass) {
+  static targetInterval(soundClass, gameClass, difficultyClass, multiplierClass) {
     const target = document.getElementById("target")
     let gameStatus = true
 
+
     if (target) {
+      multiplierClass.missedClick()
+      multiplierClass.multiplierCheck()
+      multiplierClass.updateMultiplierElement()
+
       let deleted = Life.decrementLives(soundClass)
 
       target.remove()
@@ -18,14 +24,16 @@ export class Target {
         const score = parseInt(document.getElementById("score").innerHTML)
         Score.createHighScore(score, difficultyClass)
 
+        Multiplier.hideMultiplier()
+
         gameClass.playAgain(soundClass, difficultyClass)
       }
     }
 
-    if (gameStatus) { Target.addTarget(soundClass, difficultyClass) }
+    if (gameStatus) { Target.addTarget(soundClass, difficultyClass, multiplierClass) }
   }
 
-  static addTarget(soundClass, difficultyClass) {
+  static addTarget(soundClass, difficultyClass, multiplierClass) {
     let target = document.createElement("div")
     target.id = "target"
     target.classList = `${difficultyClass.difficulty}-target`
@@ -35,16 +43,20 @@ export class Target {
     target.style.left = `${Target.getRndInteger(0, 810)}px`
     target.style.bottom = `${Target.getRndInteger(0, 570)}px`
 
-    Target.listenToTarget(target, soundClass, difficultyClass)
+    Target.listenToTarget(target, soundClass, difficultyClass, multiplierClass)
   }
 
-  static listenToTarget(target, soundClass, difficultyClass) {
+  static listenToTarget(target, soundClass, difficultyClass, multiplierClass) {
     target.addEventListener("click", function() {
       soundClass.playTargetSound()
 
-      console.log(difficultyClass.score)
+      multiplierClass.successfulClick()
+      multiplierClass.multiplierCheck()
+      multiplierClass.updateMultiplierElement()
 
-      Score.incrementScoreBy(difficultyClass.score)
+      const clickScore = difficultyClass.score * multiplierClass.multiplier
+
+      Score.incrementScoreBy(clickScore)
       target.remove()
     })
   }
