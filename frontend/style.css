@@ -113,7 +113,7 @@ td {
   transform: translate(-50%, -50%)
 }
 
-#leaderboard:hover {
+.menu-option:hover {
   color: darkblue;
 }
 

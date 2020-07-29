@@ -1,4 +1,5 @@
-import {Game} from "./game.js"
+import {Start} from "./start.js"
+import {Difficulty} from "./difficulty.js"
 
 export class LeaderBoard {
   static listenToLeaderBoard(leaderboard) {
@@ -6,7 +7,10 @@ export class LeaderBoard {
   }
 
   static handleLeaderBoardClick() {
-    Game.hideButtons()
+    LeaderBoard.hideLeaderBoardButton()
+    Start.hideStartButton()
+    Difficulty.hideDifficultyButton()
+
     LeaderBoard.fetchLeaderBoard()
     LeaderBoard.appendBackButton()
   }
@@ -31,7 +35,9 @@ export class LeaderBoard {
     const back = document.getElementById("back-button")
     back.remove()
 
-    Game.displayButtons()
+    LeaderBoard.displayLeaderBoardButton()
+    Start.displayStartButton()
+    Difficulty.displayDifficultyButton()
   }
 
   static fetchLeaderBoard() {
@@ -105,5 +111,13 @@ export class LeaderBoard {
     }
 
     leaderBoardElem.appendChild(table)
+  }
+
+  static hideLeaderBoardButton() {
+    leaderboard.style.display = "none"
+  }
+
+  static displayLeaderBoardButton() {
+    leaderboard.style.display = ""
   }
 }

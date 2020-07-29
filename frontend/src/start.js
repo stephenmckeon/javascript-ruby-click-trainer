@@ -1,7 +1,9 @@
 import {Sound} from "./sound.js"
 import {Game} from "./game.js"
+import {LeaderBoard} from "./leaderboard.js"
 
 export class Start {
+
   static appendStart(soundClass) {
     let start = document.createElement("div")
 
@@ -9,20 +11,30 @@ export class Start {
     start.innerHTML = "START"
 
     game.appendChild(start)
-    start.addEventListener("click", function() { Start.handleStartClick(soundClass) })
+
+    const startClass = new Start
+    start.addEventListener("click", startClass.listener = function() {
+      startClass.handleStartClick(soundClass)
+    })
   }
 
-  static handleStartClick(soundClass) {
-    const start = document.getElementById("start")
-    start.removeEventListener("click", Start.handleStartClick)
+  handleStartClick(soundClass) {
+    start.removeEventListener("click", this.listener)
 
-    const leaderboard = document.getElementById("leaderboard")
-    leaderboard.style.display = "none"
+    LeaderBoard.hideLeaderBoardButton()
 
     Sound.hideSoundButton()
 
     start.style.fontSize = "10em"
     start.innerHTML = 3
     Game.countDown(start, soundClass)
+  }
+
+  static hideStartButton() {
+    start.style.display = "none"
+  }
+
+  static displayStartButton() {
+    start.style.display = ""
   }
 }

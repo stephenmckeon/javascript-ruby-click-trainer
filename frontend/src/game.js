@@ -58,15 +58,11 @@ export class Game {
   }
 
   static hideButtons() {
-    start.style.display = "none"
-    leaderboard.style.display = "none"
     difficulty.style.display = "none"
   }
 
   static displayButtons() {
     start.style.display = ""
-    leaderboard.style.display = ""
-    difficulty.style.display = ""
   }
 
 }
