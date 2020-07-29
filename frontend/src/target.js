@@ -35,14 +35,16 @@ export class Target {
     target.style.left = `${Target.getRndInteger(0, 810)}px`
     target.style.bottom = `${Target.getRndInteger(0, 570)}px`
 
-    Target.listenToTarget(target, soundClass)
+    Target.listenToTarget(target, soundClass, difficultyClass)
   }
 
-  static listenToTarget(target, soundClass) {
+  static listenToTarget(target, soundClass, difficultyClass) {
     target.addEventListener("click", function() {
       soundClass.playTargetSound()
 
-      Score.incrementScoreBy(50)
+      console.log(difficultyClass.score)
+
+      Score.incrementScoreBy(difficultyClass.score)
       target.remove()
     })
   }
