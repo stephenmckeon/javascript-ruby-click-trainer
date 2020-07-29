@@ -24,31 +24,36 @@ export class Score {
     return string
   }
 
-  static createHighScore(score) {
+  static createHighScore(score, difficultyClass) {
+    console.log(difficultyClass)
     const difficulty = "easy" // default until difficulties are added in
     const leaderBoardId = 1 // default until difficulties are added in
     const initials = Score.getValidInitials()
 
-    fetch(`http://localhost:3000/score_boards/${leaderBoardId}/high_scores`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json"
-      },
-      body: JSON.stringify({
-        difficulty: difficulty,
-        initials: initials,
-        score: score,
-        score_board_id: leaderBoardId
+    if (initials !== undefined) {
+      fetch(`http://localhost:3000/score_boards/${leaderBoardId}/high_scores`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          difficulty: difficulty,
+          initials: initials,
+          score: score,
+          score_board_id: leaderBoardId
+        })
       })
-    })
+    }
   }
 
   static getValidInitials() {
     let initials = prompt("Enter your initials to save your score:", "AAA")
 
-    while (initials.length < 1 || initials.length > 3) {
-      initials = prompt("Enter your initials to save your score:", "AAA")
+    if (initials !== null) {
+      while (initials.length < 1 || initials.length > 3) {
+        initials = prompt("Enter your initials to save your score:", "AAA")
+      }
     }
 
     return initials

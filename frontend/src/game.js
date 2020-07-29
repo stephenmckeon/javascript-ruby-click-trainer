@@ -32,11 +32,10 @@ export class Game {
   }
 
   startGame(soundClass, gameClass, difficultyClass) {
-    console.log(difficultyClass)
     Score.appendScore()
     Life.appendLives()
     this.gameInterval = setInterval(function() {
-      Target.targetInterval(soundClass, gameClass)
+      Target.targetInterval(soundClass, gameClass, difficultyClass)
     }, difficultyClass.interval)
   }
 

@@ -35,10 +35,13 @@ export class Difficulty {
   setDifficultyAttrs() {
     const difficultyClass = this
     if (this.difficulty_id === 1) {
+      difficultyClass.difficulty = "easy"
       difficultyClass.interval = 1500
     } else if (this.difficulty_id === 2) {
+      difficultyClass.difficulty = "medium"
       difficultyClass.interval = 1000
     } else if (this.difficulty_id === 3) {
+      difficultyClass.difficulty = "hard"
       difficultyClass.interval = 800
     }
   }

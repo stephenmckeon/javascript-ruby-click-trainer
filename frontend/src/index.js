@@ -24,6 +24,6 @@ document.addEventListener("DOMContentLoaded", function(e) {
 
 
 // Difficulty change should:
-// * change the interval speed
 // * change the size of the targets
 // * the amount of points for each click: easy is 500, m = 1000, h = 5000
+// * post to the correct leaderboard

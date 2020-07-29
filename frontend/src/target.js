@@ -2,7 +2,7 @@ import {Life} from "./life.js"
 import {Score} from "./score.js"
 
 export class Target {
-  static targetInterval(soundClass, gameClass) {
+  static targetInterval(soundClass, gameClass, difficultyClass) {
     const target = document.getElementById("target")
     let gameStatus = true
 
@@ -14,9 +14,10 @@ export class Target {
       if (!deleted) {
         gameStatus = false
         gameClass.gameOver()
-        // before playAgain,submit score to leader boards
+
         const score = parseInt(document.getElementById("score").innerHTML)
-        Score.createHighScore(score)
+        Score.createHighScore(score, difficultyClass)
+
         gameClass.playAgain()
       }
     }
