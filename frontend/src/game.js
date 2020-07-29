@@ -1,7 +1,9 @@
-import {Score} from "./score.js"
-import {Life} from "./life.js"
-import {Target} from "./target.js"
-import {Sound} from "./sound.js"
+import { Score } from "./score.js"
+import { Life } from "./life.js"
+import { Target } from "./target.js"
+import { Sound } from "./sound.js"
+import { LeaderBoard } from "./leaderboard.js"
+import { Difficulty } from "./difficulty.js"
 
 export class Game {
   constructor(gameInterval) {
@@ -51,9 +53,8 @@ export class Game {
     const score = document.getElementById("score")
     score.remove()
 
-    const leaderBoard = document.getElementById("leaderboard")
-    leaderBoard.style.display = ""
-
+    Difficulty.displayDifficultyButton()
+    LeaderBoard.displayLeaderBoardButton()
     Sound.showSoundButton()
   }
 

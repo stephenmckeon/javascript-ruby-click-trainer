@@ -1,9 +1,9 @@
 import {Sound} from "./sound.js"
 import {Game} from "./game.js"
 import {LeaderBoard} from "./leaderboard.js"
+import {Difficulty} from "./difficulty.js"
 
 export class Start {
-
   static appendStart(soundClass) {
     let start = document.createElement("div")
 
@@ -21,8 +21,8 @@ export class Start {
   handleStartClick(soundClass) {
     start.removeEventListener("click", this.listener)
 
+    Difficulty.hideDifficultyButton()
     LeaderBoard.hideLeaderBoardButton()
-
     Sound.hideSoundButton()
 
     start.style.fontSize = "10em"
