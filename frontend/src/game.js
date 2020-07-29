@@ -5,6 +5,7 @@ import { Sound } from "./sound.js"
 import { LeaderBoard } from "./leaderboard.js"
 import { Difficulty } from "./difficulty.js"
 import { Start } from "./start.js"
+import { Multiplier } from "./multiplier.js"
 
 export class Game {
   constructor(gameInterval) {
@@ -35,6 +36,7 @@ export class Game {
   startGame(soundClass, gameClass, difficultyClass) {
     Score.appendScore()
     Life.appendLives()
+    Multiplier.displayMultiplier()
     this.gameInterval = setInterval(function() {
       Target.targetInterval(soundClass, gameClass, difficultyClass)
     }, difficultyClass.interval)
@@ -48,7 +50,7 @@ export class Game {
   playAgain(soundClass, difficultyClass) {
     const start = document.getElementById("start")
     start.innerHTML = "PLAY AGAIN"
-    start.style.fontSize = "5em"
+    start.style.fontSize = "4em"
     start.style.display = ""
     Start.listenToStart(soundClass, difficultyClass)
 

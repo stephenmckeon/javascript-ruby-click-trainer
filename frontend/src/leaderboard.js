@@ -78,15 +78,15 @@ export class LeaderBoard {
     const headerRow  = document.createElement("TR")
 
     const rankHeader = document.createElement("TH")
-    rankHeader.innerHTML = "RANK"
+    rankHeader.innerHTML = "Rank"
     headerRow.appendChild(rankHeader)
 
     const initialsHeader = document.createElement("TH")
-    initialsHeader.innerHTML = "NAME"
+    initialsHeader.innerHTML = "Name"
     headerRow.appendChild(initialsHeader)
 
     const scoreHeader = document.createElement("TH")
-    scoreHeader.innerHTML = "SCORE"
+    scoreHeader.innerHTML = "Score"
     headerRow.appendChild(scoreHeader)
 
     table.appendChild(headerRow)
@@ -96,7 +96,7 @@ export class LeaderBoard {
       const row  = document.createElement("TR")
 
       const rank = document.createElement("TD")
-      rank.innerHTML = `${i + 1}. `
+      rank.innerHTML = i + 1
       row.appendChild(rank)
 
       const initials = document.createElement("TD")

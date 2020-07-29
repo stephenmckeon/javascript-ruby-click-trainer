@@ -15,13 +15,6 @@ document.addEventListener("DOMContentLoaded", function(e) {
   difficultyClass.listenToDifficulties()
 })
 
-// clicking without missing increases a multiplier (imagine guitar hero)
+// clicking without missing increases a multiplier (imagine guitar hero) ***
 // animate targets after click
-// arcade style fonts
 // rubocop
-// fix leaderboard styling
-
-
-// Difficulty change should:
-// * change the size of the targets
-// * the amount of points for each click: easy is 500, m = 1000, h = 5000

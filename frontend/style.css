@@ -1,7 +1,15 @@
+@font-face {
+  font-family: 'pixel';
+  src: url(fonts/pixel-font/04B_30__.TTF);
+  font-style: normal;
+  font-weight: 100;
+}
+
 h6 {
   color: white;
-  font-size: 4em;
+  font-size: 3em;
   font-weight: 100;
+  margin: 1em;
 }
 
 table {
@@ -11,11 +19,23 @@ table {
 th {
   color: white;
   font-size: 1.25em;
+  padding-bottom: 25px;
 }
 
 td {
   color: white;
   font-size: 1em;
+  padding-bottom: 15px;
+
+}
+
+#multiplier {
+  font-family: pixel;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-size: 3em;
+  display: none;
 }
 
 #game {
@@ -29,6 +49,7 @@ td {
 }
 
 #start {
+  font-family: pixel;
   color: white;
   font-size: 10em;
   position: absolute;
@@ -42,18 +63,21 @@ td {
 }
 
 #leaderboard {
+  font-family: pixel;
   font-size: 3em;
   top: 65%;
   left: 50%;
 }
 
 #difficulty {
-  font-size: 2.5em;
+  font-family: pixel;
+  font-size: 1.75em;
   top: 35%;
   left: 50%;
 }
 
 #back-button {
+  font-family: pixel;
   color: white;
   font-size: 3em;
   position: absolute;
@@ -67,10 +91,12 @@ td {
 }
 
 #score {
+  font-family: pixel;
   color: white;
   font-size: 3em;
   position: absolute;
-  padding-left: 10px;
+  margin-left: 10px;
+  margin-top: 10px;
 }
 
 #lives-container {
@@ -91,6 +117,7 @@ td {
 }
 
 #leaderboard-container {
+  font-family: pixel;
   height: 90%;
   width: 90%;
   position: absolute;
@@ -100,25 +127,34 @@ td {
 }
 
 #target {
-  border-radius: 50%;
+  /* border-radius: 50%; */
   display: inline-block;
   position: absolute;
 }
 
 .easy-target {
-  background-color: darkgreen;
+  background-image: url(img/laughing-emoji-removebg-preview\ \(2\).png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  /* background-color: darkgreen; */
   height: 150px;
   width: 150px;
 }
 
 .medium-target {
-  background-color: goldenrod;
+  /* background-color: goldenrod; */
+  background-image: url(img/cool-emoji-removebg-preview.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
   height: 70px;
   width: 70px;
 }
 
 .hard-target {
-  background-color: maroon;
+  /* background-color: maroon; */
+  background-image: url(img/shocked2-emoji-removebg-preview.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
   height: 50px;
   width: 50px;
 }
@@ -141,11 +177,12 @@ td {
 }
 
 .heart {
-  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/9632/heart.png");
+  background-image: url(img/heart-removebg-preview.png);
   background-size: 100%;
   background-repeat: no-repeat;
   display: inline-block;
   position: relative;
   height: 3em;
   width: 3em;
+  margin-right: 3px;
 }
