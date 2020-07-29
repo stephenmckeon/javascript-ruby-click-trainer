@@ -1,0 +1,5 @@
+class Difficulty {
+  static appendDifficulty() {
+
+  }
+}

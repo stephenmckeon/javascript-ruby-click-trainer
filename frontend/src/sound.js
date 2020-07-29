@@ -1,4 +1,4 @@
-export default class Sound {
+export class Sound {
   constructor(element) {
     this.element = element
     this.gameSound = false

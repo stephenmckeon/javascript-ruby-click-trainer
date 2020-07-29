@@ -1,4 +1,4 @@
-export default class Life {
+export class Life {
   static decrementLives(soundClass) {
     const heart = document.querySelector(".heart")
     let deleted

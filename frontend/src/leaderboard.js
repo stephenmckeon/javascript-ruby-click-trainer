@@ -1,28 +1,14 @@
-export default class LeaderBoard {
-  static appendLeaderboard() {
-    let leaderboard = document.createElement("div")
+import {Game} from "./game.js"
 
-    leaderboard.id = "leaderboard"
-    leaderboard.innerHTML = "LEADERBOARD"
-
-    game.appendChild(leaderboard)
-    LeaderBoard.listenToLeaderBoard(leaderboard)
+export class LeaderBoard {
+  static listenToLeaderBoard(leaderboard) {
+    leaderboard.addEventListener("click", this.handleLeaderBoardClick)
   }
 
-  static listenToLeaderBoard(leaderboard) {
-    leaderboard.addEventListener("click", function() {
-      const leaderBoard = document.getElementById("leaderboard-container")
-
-      if (leaderBoard.style.display === "none") {
-        leaderBoard.style.display = ""
-        start.style.display = "none"
-        leaderboard.style.display = "none"
-      } else {
-        LeaderBoard.fetchLeaderBoard()
-      }
-
-      LeaderBoard.appendBackButton()
-    })
+  static handleLeaderBoardClick() {
+    Game.hideButtons()
+    LeaderBoard.fetchLeaderBoard()
+    LeaderBoard.appendBackButton()
   }
 
   static appendBackButton() {
@@ -39,14 +25,13 @@ export default class LeaderBoard {
   }
 
   static handleBackClick() {
-    const leaderBoard = document.getElementById("leaderboard-container")
-    leaderBoard.style.display = "none"
+    const leaderBoardCards = document.querySelectorAll(".leaderboard-card")
+    leaderBoardCards.forEach(card => card.remove())
 
     const back = document.getElementById("back-button")
     back.remove()
 
-    start.style.display = ""
-    leaderboard.style.display = ""
+    Game.displayButtons()
   }
 
   static fetchLeaderBoard() {
@@ -56,9 +41,6 @@ export default class LeaderBoard {
   }
 
   static displayLeaderBoard(leaderBoards) {
-    start.style.display = "none"
-    leaderboard.style.display = "none"
-
     const sortedLeaderBoards = leaderBoards.sort(function(a, b) {
       return a.id - b.id
     })

@@ -1,4 +1,7 @@
-export default class Start {
+import {Sound} from "./sound.js"
+import {Game} from "./game.js"
+
+export class Start {
   static appendStart(soundClass) {
     let start = document.createElement("div")
 

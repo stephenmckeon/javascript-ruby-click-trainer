@@ -1,4 +1,7 @@
-export default class Target {
+import {Life} from "./life.js"
+import {Score} from "./score.js"
+
+export class Target {
   static targetInterval(soundClass, gameClass) {
     const target = document.getElementById("target")
     let gameStatus = true

@@ -1,4 +1,9 @@
-export default class Game {
+import {Score} from "./score.js"
+import {Life} from "./life.js"
+import {Target} from "./target.js"
+import {Sound} from "./sound.js"
+
+export class Game {
   constructor(gameInterval) {
     this.gameInterval = gameInterval
   }
@@ -51,4 +56,17 @@ export default class Game {
 
     Sound.showSoundButton()
   }
+
+  static hideButtons() {
+    start.style.display = "none"
+    leaderboard.style.display = "none"
+    difficulty.style.display = "none"
+  }
+
+  static displayButtons() {
+    start.style.display = ""
+    leaderboard.style.display = ""
+    difficulty.style.display = ""
+  }
+
 }

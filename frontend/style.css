@@ -42,16 +42,13 @@ td {
 }
 
 #leaderboard {
-  color: white;
-  font-size: 3em;
-  position: absolute;
   top: 65%;
   left: 50%;
-  transform: translate(-50%, -50%);
 }
 
-#leaderboard:hover {
-  color: darkblue;
+#difficulty {
+  top: 35%;
+  left: 50%;
 }
 
 #back-button {
@@ -109,8 +106,15 @@ td {
   transform: translate(-50%, -50%)
 }
 
-#play-again {
+.menu-option {
+  color: white;
+  font-size: 3em;
+  position: absolute;
+  transform: translate(-50%, -50%)
+}
 
+#leaderboard:hover {
+  color: darkblue;
 }
 
 .leaderboard-card {
@@ -118,15 +122,6 @@ td {
   width: 33%;
   position: relative;
   display: inline-block
-}
-
-.life {
-  height: 3em;
-  width: 3em;
-  background-color: maroon;
-  border-radius: 50%;
-  display: inline-block;
-  margin-right: 5px;
 }
 
 .heart {

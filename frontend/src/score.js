@@ -1,4 +1,4 @@
-export default class Score {
+export class Score {
   static appendScore() {
     const score = document.createElement("div")
     score.id = "score"

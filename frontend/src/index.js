@@ -1,17 +1,16 @@
 import {Sound} from "./sound.js"
-import {Score} from "./score.js"
-import {Life} from "./life.js"
-import {Target} from "./target.js"
-import {Game} from "./game.js"
 import {Start} from "./start.js"
 import {LeaderBoard} from "./leaderboard.js"
+// import {difficulty} from "./difficulty.js"
 
 document.addEventListener("DOMContentLoaded", function(e) {
   const soundClass = new Sound(document.getElementById("sound-button"))
+  const leaderBoard = document.getElementById("leaderboard")
 
   Start.appendStart(soundClass)
-  LeaderBoard.appendLeaderboard()
+  LeaderBoard.listenToLeaderBoard(leaderBoard)
   soundClass.listenToSoundButton()
+  // Difficulty.appendDifficulty()
 })
 
 // clicking without missing increases a multiplier (imagine guitar hero)
