@@ -18,10 +18,10 @@ export class Difficulty {
     } else {
       this.difficulty_id = 1
       span.innerHTML = "EASY"
-
     }
 
     difficulty.appendChild(span)
+    this.setDifficultyAttrs()
   }
 
   listenToDifficulties() {
@@ -30,6 +30,17 @@ export class Difficulty {
       difficultyClass.difficulty_id++
       difficultyClass.cycleDifficulty()
     })
+  }
+
+  setDifficultyAttrs() {
+    const difficultyClass = this
+    if (this.difficulty_id === 1) {
+      difficultyClass.interval = 1500
+    } else if (this.difficulty_id === 2) {
+      difficultyClass.interval = 1000
+    } else if (this.difficulty_id === 3) {
+      difficultyClass.interval = 800
+    }
   }
 
   static hideDifficultyButton() {

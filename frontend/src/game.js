@@ -10,15 +10,7 @@ export class Game {
     this.gameInterval = gameInterval
   }
 
-  startGame(soundClass, gameClass) {
-    Score.appendScore()
-    Life.appendLives()
-    this.gameInterval = setInterval(function() {
-      Target.targetInterval(soundClass, gameClass)
-    }, 1000)
-  }
-
-  static countDown(start, soundClass) {
+  static countDown(start, soundClass, difficultyClass) {
     let i = 2
 
     const countdown = setInterval(function() {
@@ -34,9 +26,18 @@ export class Game {
         start.style.display = "none"
 
         const gameClass = new Game
-        gameClass.startGame(soundClass, gameClass)
+        gameClass.startGame(soundClass, gameClass, difficultyClass)
       }
     }, 1000)
+  }
+
+  startGame(soundClass, gameClass, difficultyClass) {
+    console.log(difficultyClass)
+    Score.appendScore()
+    Life.appendLives()
+    this.gameInterval = setInterval(function() {
+      Target.targetInterval(soundClass, gameClass)
+    }, difficultyClass.interval)
   }
 
   gameOver() {

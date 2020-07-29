@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
   const leaderBoard = document.getElementById("leaderboard")
   const difficultyClass = new Difficulty(1)
 
-  Start.appendStart(soundClass)
+  Start.appendStart(soundClass, difficultyClass)
   LeaderBoard.listenToLeaderBoard(leaderBoard)
   soundClass.listenToSoundButton()
   difficultyClass.cycleDifficulty()
@@ -19,6 +19,11 @@ document.addEventListener("DOMContentLoaded", function(e) {
 // animate targets after click
 // arcade style fonts
 // rubocop
-// seperate JS files
-// fix leaderboard not refreshing when a new score is added after you've already looked at the leaderboard
 // if cancel on intials, what happens? don't save score, prompt to play again
+// fix leaderboard styling
+
+
+// Difficulty change should:
+// * change the interval speed
+// * change the size of the targets
+// * the amount of points for each click: easy is 500, m = 1000, h = 5000

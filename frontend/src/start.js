@@ -4,7 +4,7 @@ import {LeaderBoard} from "./leaderboard.js"
 import {Difficulty} from "./difficulty.js"
 
 export class Start {
-  static appendStart(soundClass) {
+  static appendStart(soundClass, difficultyClass) {
     let start = document.createElement("div")
 
     start.id = "start"
@@ -14,11 +14,11 @@ export class Start {
 
     const startClass = new Start
     start.addEventListener("click", startClass.listener = function() {
-      startClass.handleStartClick(soundClass)
+      startClass.handleStartClick(soundClass, difficultyClass)
     })
   }
 
-  handleStartClick(soundClass) {
+  handleStartClick(soundClass, difficultyClass) {
     start.removeEventListener("click", this.listener)
 
     Difficulty.hideDifficultyButton()
@@ -27,7 +27,7 @@ export class Start {
 
     start.style.fontSize = "10em"
     start.innerHTML = 3
-    Game.countDown(start, soundClass)
+    Game.countDown(start, soundClass, difficultyClass)
   }
 
   static hideStartButton() {
