@@ -18,21 +18,22 @@ export class Target {
         const score = parseInt(document.getElementById("score").innerHTML)
         Score.createHighScore(score, difficultyClass)
 
-        gameClass.playAgain()
+        gameClass.playAgain(soundClass, difficultyClass)
       }
     }
 
-    if (gameStatus) { Target.addTarget(soundClass) }
+    if (gameStatus) { Target.addTarget(soundClass, difficultyClass) }
   }
 
-  static addTarget(soundClass) {
+  static addTarget(soundClass, difficultyClass) {
     let target = document.createElement("div")
     target.id = "target"
+    target.classList = `${difficultyClass.difficulty}-target`
 
     game.appendChild(target)
 
-    target.style.left = `${Target.getRndInteger(0, 890)}px`
-    target.style.bottom = `${Target.getRndInteger(0, 650)}px`
+    target.style.left = `${Target.getRndInteger(0, 810)}px`
+    target.style.bottom = `${Target.getRndInteger(0, 570)}px`
 
     Target.listenToTarget(target, soundClass)
   }

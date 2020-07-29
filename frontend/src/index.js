@@ -19,11 +19,9 @@ document.addEventListener("DOMContentLoaded", function(e) {
 // animate targets after click
 // arcade style fonts
 // rubocop
-// if cancel on intials, what happens? don't save score, prompt to play again
 // fix leaderboard styling
 
 
 // Difficulty change should:
 // * change the size of the targets
 // * the amount of points for each click: easy is 500, m = 1000, h = 5000
-// * post to the correct leaderboard

@@ -73,15 +73,6 @@ td {
   padding-left: 10px;
 }
 
-#target {
-  height: 70px;
-  width: 70px;
-  background-color: rgb(197, 89, 0);
-  border-radius: 50%;
-  display: inline-block;
-  position: absolute;
-}
-
 #lives-container {
   margin-top: 8px;
   padding-right: 5px;
@@ -106,6 +97,30 @@ td {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%)
+}
+
+#target {
+  border-radius: 50%;
+  display: inline-block;
+  position: absolute;
+}
+
+.easy-target {
+  background-color: darkgreen;
+  height: 150px;
+  width: 150px;
+}
+
+.medium-target {
+  background-color: goldenrod;
+  height: 70px;
+  width: 70px;
+}
+
+.hard-target {
+  background-color: maroon;
+  height: 50px;
+  width: 50px;
 }
 
 .menu-option {

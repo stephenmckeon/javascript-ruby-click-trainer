@@ -11,8 +11,12 @@ export class Start {
     start.innerHTML = "START"
 
     game.appendChild(start)
+    this.listenToStart(soundClass, difficultyClass)
+  }
 
+  static listenToStart(soundClass, difficultyClass) {
     const startClass = new Start
+
     start.addEventListener("click", startClass.listener = function() {
       startClass.handleStartClick(soundClass, difficultyClass)
     })

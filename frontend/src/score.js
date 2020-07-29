@@ -25,12 +25,11 @@ export class Score {
   }
 
   static createHighScore(score, difficultyClass) {
-    console.log(difficultyClass)
-    const difficulty = "easy" // default until difficulties are added in
-    const leaderBoardId = 1 // default until difficulties are added in
+    const difficulty = difficultyClass.difficulty
+    const leaderBoardId = difficultyClass.difficulty_id
     const initials = Score.getValidInitials()
 
-    if (initials !== undefined) {
+    if (initials !== null) {
       fetch(`http://localhost:3000/score_boards/${leaderBoardId}/high_scores`, {
         method: "POST",
         headers: {

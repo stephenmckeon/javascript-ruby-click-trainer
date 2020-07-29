@@ -4,6 +4,7 @@ import { Target } from "./target.js"
 import { Sound } from "./sound.js"
 import { LeaderBoard } from "./leaderboard.js"
 import { Difficulty } from "./difficulty.js"
+import { Start } from "./start.js"
 
 export class Game {
   constructor(gameInterval) {
@@ -44,11 +45,12 @@ export class Game {
     clearInterval(this.gameInterval)
   }
 
-  playAgain() {
+  playAgain(soundClass, difficultyClass) {
     const start = document.getElementById("start")
     start.innerHTML = "PLAY AGAIN"
     start.style.fontSize = "5em"
     start.style.display = ""
+    Start.listenToStart(soundClass, difficultyClass)
 
     const score = document.getElementById("score")
     score.remove()
