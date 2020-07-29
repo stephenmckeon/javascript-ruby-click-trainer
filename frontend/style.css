@@ -5,6 +5,11 @@
   font-weight: 100;
 }
 
+body {
+  background-color: #404040;
+  cursor: crosshair;
+}
+
 h6 {
   color: white;
   font-size: 3em;
@@ -49,6 +54,7 @@ td {
 }
 
 #start {
+  cursor: pointer;
   font-family: pixel;
   color: white;
   font-size: 10em;
@@ -63,6 +69,7 @@ td {
 }
 
 #leaderboard {
+  cursor: pointer;
   font-family: pixel;
   font-size: 3em;
   top: 65%;
@@ -70,6 +77,7 @@ td {
 }
 
 #difficulty {
+  cursor: pointer;
   font-family: pixel;
   font-size: 1.75em;
   top: 35%;
@@ -77,6 +85,7 @@ td {
 }
 
 #back-button {
+  cursor: pointer;
   font-family: pixel;
   color: white;
   font-size: 3em;
@@ -108,6 +117,7 @@ td {
 }
 
 #sound-button {
+  cursor: pointer;
   height: 3em;
   width: 3em;
   display: inline-block;
@@ -127,7 +137,6 @@ td {
 }
 
 #target {
-  /* border-radius: 50%; */
   display: inline-block;
   position: absolute;
 }
@@ -136,13 +145,11 @@ td {
   background-image: url(img/laughing-emoji-removebg-preview\ \(2\).png);
   background-size: 100%;
   background-repeat: no-repeat;
-  /* background-color: darkgreen; */
   height: 150px;
   width: 150px;
 }
 
 .medium-target {
-  /* background-color: goldenrod; */
   background-image: url(img/cool-emoji-removebg-preview.png);
   background-size: 100%;
   background-repeat: no-repeat;
@@ -151,7 +158,6 @@ td {
 }
 
 .hard-target {
-  /* background-color: maroon; */
   background-image: url(img/shocked2-emoji-removebg-preview.png);
   background-size: 100%;
   background-repeat: no-repeat;
@@ -185,4 +191,20 @@ td {
   height: 3em;
   width: 3em;
   margin-right: 3px;
+}
+
+.pulse:hover{
+  animation: pulse 1s infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes pulse {
+  0% { font-size: 10em; }
+  50% { font-size: 11em; }
+  100% { font-size: 10em; }
+}
+
+.zoom:hover{
+  transform: scale(1.5);
+  transition: all ease 500ms;
 }

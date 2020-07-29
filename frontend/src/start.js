@@ -8,6 +8,7 @@ export class Start {
     let start = document.createElement("div")
 
     start.id = "start"
+    start.classList = "pulse"
     start.innerHTML = "START"
 
     game.appendChild(start)

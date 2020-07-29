@@ -94,6 +94,7 @@ export class LeaderBoard {
     for (let i = 0; i < scores.length; i++ ) {
 
       const row  = document.createElement("TR")
+      row.classList = "zoom"
 
       const rank = document.createElement("TD")
       rank.innerHTML = i + 1

@@ -6,7 +6,6 @@ export class Multiplier {
 
   successfulClick() {
     this.consecutiveClicks++
-    console.log(this.consecutiveClicks)
   }
 
   missedClick() {
@@ -16,13 +15,13 @@ export class Multiplier {
   multiplierCheck() {
     const multiplierClass = this
 
-    if (this.consecutiveClicks < 2) {
+    if (this.consecutiveClicks < 5) {
       multiplierClass.multiplier = 1
-    } else if (this.consecutiveClicks >= 2 && this.consecutiveClicks < 5) {
-      multiplierClass.multiplier = 2
     } else if (this.consecutiveClicks >= 5 && this.consecutiveClicks < 10) {
+      multiplierClass.multiplier = 2
+    } else if (this.consecutiveClicks >= 10 && this.consecutiveClicks < 15) {
       multiplierClass.multiplier = 3
-    } else if (this.consecutiveClicks > 10) {
+    } else if (this.consecutiveClicks >= 15) {
       multiplierClass.multiplier = 4
     }
   }

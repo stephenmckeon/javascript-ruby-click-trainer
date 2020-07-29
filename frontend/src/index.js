@@ -15,6 +15,5 @@ document.addEventListener("DOMContentLoaded", function(e) {
   difficultyClass.listenToDifficulties()
 })
 
-// clicking without missing increases a multiplier (imagine guitar hero) ***
 // animate targets after click
 // rubocop
