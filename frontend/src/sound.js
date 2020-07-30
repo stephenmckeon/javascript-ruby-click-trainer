@@ -30,6 +30,14 @@ export class Sound {
     this.playSound(document.getElementById("miss-sound"))
   }
 
+  playGameOverSound() {
+    this.playSound(document.getElementById("gameover-sound"))
+  }
+
+  playCountdownSound() {
+    this.playSound(document.getElementById("countdown-sound"))
+  }
+
   playSound(sound) {
     if (this.gameSound) {
       sound.pause()

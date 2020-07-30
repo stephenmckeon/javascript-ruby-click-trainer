@@ -19,7 +19,7 @@ export class Target {
 
       if (!deleted) {
         gameStatus = false
-        gameClass.gameOver()
+        gameClass.gameOver(soundClass)
 
         const score = parseInt(document.getElementById("score").innerHTML)
         Score.createHighScore(score, difficultyClass)

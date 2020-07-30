@@ -17,6 +17,7 @@ export class Game {
 
     const countdown = setInterval(function() {
       if (i >= 1) {
+        soundClass.playCountdownSound()
         start.innerHTML = i
         i--
       } else if (i === 0) {
@@ -45,7 +46,8 @@ export class Game {
     }, difficultyClass.interval)
   }
 
-  gameOver() {
+  gameOver(soundClass) {
+    soundClass.playGameOverSound()
     alert("Game Over!")
     clearInterval(this.gameInterval)
   }

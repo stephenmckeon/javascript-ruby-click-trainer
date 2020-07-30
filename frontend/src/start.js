@@ -33,6 +33,7 @@ export class Start {
     start.style.fontSize = "10em"
     start.classList = ""
     start.innerHTML = 3
+    soundClass.playCountdownSound()
     Game.countDown(start, soundClass, difficultyClass)
   }
 

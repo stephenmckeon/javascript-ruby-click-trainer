@@ -17,3 +17,5 @@ document.addEventListener("DOMContentLoaded", function(e) {
 
 // animate targets after click
 // rubocop
+// destructing
+// =>
