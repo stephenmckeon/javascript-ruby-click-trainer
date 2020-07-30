@@ -47,7 +47,7 @@ export class Target {
   }
 
   static listenToTarget(target, soundClass, difficultyClass, multiplierClass) {
-    target.addEventListener("click", function() {
+    target.addEventListener("click", () => {
       soundClass.playTargetSound()
 
       multiplierClass.successfulClick()

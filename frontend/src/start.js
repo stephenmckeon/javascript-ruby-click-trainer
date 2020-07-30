@@ -18,9 +18,9 @@ export class Start {
   static listenToStart(soundClass, difficultyClass) {
     const startClass = new Start
 
-    start.addEventListener("click", startClass.listener = function() {
-      startClass.handleStartClick(soundClass, difficultyClass)
-    })
+    startClass.listener = () => startClass.handleStartClick(soundClass, difficultyClass)
+
+    start.addEventListener("click", startClass.listener)
   }
 
   handleStartClick(soundClass, difficultyClass) {

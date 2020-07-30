@@ -47,9 +47,7 @@ export class LeaderBoard {
   }
 
   static displayLeaderBoard(leaderBoards) {
-    const sortedLeaderBoards = leaderBoards.sort(function(a, b) {
-      return a.id - b.id
-    })
+    const sortedLeaderBoards = leaderBoards.sort((a, b) => a.id - b.id)
 
     for(const leaderBoard of sortedLeaderBoards) {
 

@@ -26,7 +26,7 @@ export class Difficulty {
 
   listenToDifficulties() {
     const difficultyClass = this
-    difficulty.addEventListener("click", function() {
+    difficulty.addEventListener("click", () => {
       difficultyClass.difficulty_id++
       difficultyClass.cycleDifficulty()
     })

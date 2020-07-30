@@ -15,7 +15,7 @@ export class Game {
   static countDown(start, soundClass, difficultyClass) {
     let i = 2
 
-    const countdown = setInterval(function() {
+    const countdown = setInterval(() => {
       if (i >= 1) {
         soundClass.playCountdownSound()
         start.innerHTML = i
@@ -41,7 +41,7 @@ export class Game {
 
     const multiplierClass = new Multiplier
 
-    this.gameInterval = setInterval(function() {
+    this.gameInterval = setInterval(event => {
       Target.targetInterval(soundClass, gameClass, difficultyClass, multiplierClass)
     }, difficultyClass.interval)
   }

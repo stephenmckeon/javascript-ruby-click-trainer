@@ -8,7 +8,7 @@ export class Sound {
     let soundButton = this.element
     let thisSound = this
 
-    soundButton.addEventListener("click", function() {
+    soundButton.addEventListener("click", () => {
       thisSound.gameSound ? thisSound.gameSound = false : thisSound.gameSound = true
       if (thisSound.gameSound) {
         soundButton.src = "img/sound-on.png"
