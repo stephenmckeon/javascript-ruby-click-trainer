@@ -37,10 +37,10 @@ export class Score {
           "Accept": "application/json"
         },
         body: JSON.stringify({
-          difficulty: difficulty,
-          initials: initials,
-          score: score,
-          score_board_id: leaderBoardId
+          difficulty,
+          initials,
+          score,
+          score_board_id
         })
       })
     }

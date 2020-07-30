@@ -15,7 +15,6 @@ document.addEventListener("DOMContentLoaded", function(e) {
   difficultyClass.listenToDifficulties()
 })
 
-// animate targets after click
 // rubocop
 // destructing
 // =>
