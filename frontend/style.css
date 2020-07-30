@@ -193,15 +193,26 @@ td {
   margin-right: 3px;
 }
 
-.pulse:hover{
-  animation: pulse 1s infinite;
+.start-pulse:hover{
+  animation: start-pulse 1s infinite;
   animation-timing-function: linear;
 }
 
-@keyframes pulse {
+@keyframes start-pulse {
   0% { font-size: 10em; }
   50% { font-size: 11em; }
   100% { font-size: 10em; }
+}
+
+.play-again-pulse:hover{
+  animation: play-again-pulse 1s infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes play-again-pulse {
+  0% { font-size: 4em; }
+  50% { font-size: 5em; }
+  100% { font-size: 4em; }
 }
 
 .zoom:hover{

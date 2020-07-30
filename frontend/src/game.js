@@ -53,6 +53,7 @@ export class Game {
   playAgain(soundClass, difficultyClass) {
     const start = document.getElementById("start")
     start.innerHTML = "PLAY AGAIN"
+    start.classList = "play-again-pulse"
     start.style.fontSize = "4em"
     start.style.display = ""
     Start.listenToStart(soundClass, difficultyClass)

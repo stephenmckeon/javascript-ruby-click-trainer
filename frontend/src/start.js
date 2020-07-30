@@ -8,7 +8,7 @@ export class Start {
     let start = document.createElement("div")
 
     start.id = "start"
-    start.classList = "pulse"
+    start.classList = "start-pulse"
     start.innerHTML = "START"
 
     game.appendChild(start)
@@ -31,6 +31,7 @@ export class Start {
     Sound.hideSoundButton()
 
     start.style.fontSize = "10em"
+    start.classList = ""
     start.innerHTML = 3
     Game.countDown(start, soundClass, difficultyClass)
   }
