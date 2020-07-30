@@ -6,13 +6,13 @@ require:
 AllCops:
   TargetRubyVersion: 2.5
   Exclude:
-    - 'spec/*'
-    - 'spec/**/*'
-    - 'vendor/**/*'
-    - 'db/schema.rb'
-    - 'config/**'
-    - 'config/**/*'
-    - 'bin/**'
+    - 'backend/spec/*'
+    - 'backend/spec/**/*'
+    - 'backend/vendor/**/*'
+    - 'backend/db/schema.rb'
+    - 'backend/config/**'
+    - 'backend/config/**/*'
+    - 'backend/bin/**'
 
 Layout/AccessModifierIndentation:
   EnforcedStyle: outdent
