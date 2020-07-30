@@ -11,7 +11,6 @@ document.addEventListener("DOMContentLoaded", () => {
   Start.appendStart(soundClass, difficultyClass)
   LeaderBoard.listenToLeaderBoard(leaderBoard)
   soundClass.listenToSoundButton()
-  difficultyClass.cycleDifficulty()
   difficultyClass.listenToDifficulties()
 })
 
