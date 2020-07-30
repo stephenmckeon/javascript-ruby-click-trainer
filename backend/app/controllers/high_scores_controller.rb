@@ -5,11 +5,11 @@ class HighScoresController < ApplicationController
   end
 
   def create
-    high_score = HighScore.create(
+    HighScore.create(
       difficulty: params[:difficulty],
       initials: params[:initials],
       score: params[:score],
       score_board_id: params[:score_board_id]
-      )
+    )
   end
 end

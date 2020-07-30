@@ -1,7 +1,7 @@
-import {Sound} from "./sound.js"
-import {Start} from "./start.js"
-import {LeaderBoard} from "./leaderboard.js"
-import {Difficulty} from "./difficulty.js"
+import { Sound } from "./sound.js"
+import { Start } from "./start.js"
+import { LeaderBoard } from "./leaderboard.js"
+import { Difficulty } from "./difficulty.js"
 
 document.addEventListener("DOMContentLoaded", () => {
   const soundClass = new Sound(document.getElementById("sound-button"))
@@ -13,7 +13,3 @@ document.addEventListener("DOMContentLoaded", () => {
   soundClass.listenToSoundButton()
   difficultyClass.listenToDifficulties()
 })
-
-// rubocop
-// destructing
-// =>

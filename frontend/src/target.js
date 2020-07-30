@@ -1,5 +1,5 @@
-import {Life} from "./life.js"
-import {Score} from "./score.js"
+import { Life } from "./life.js"
+import { Score } from "./score.js"
 import { Multiplier } from "./multiplier.js"
 
 export class Target {
